@@ -12,6 +12,9 @@ class Personnage
     private $nom="";
     private $degats=0;
 
+    const CEST_MOI = 1; // Constante renvoyée par la méthode `frapper` si on se frappe soi-même.
+    const PERSONNAGE_TUE = 2; // Constante renvoyée par la méthode `frapper` si on a tué le personnage en le frappant.
+    const PERSONNAGE_FRAPPE = 3; // Constante renvoyée par la méthode `frapper` si on a bien frappé le personnage.
     /**
      * Personnage constructor.
      */
@@ -121,6 +124,10 @@ class Personnage
             if(method_exists($methode))
             {
                 $this->$methode($valeur);
+            }
+            else
+            {
+                echo "La méthode '".$methode."' n'existe pas.";
             }
         }
     }
