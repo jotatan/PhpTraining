@@ -121,7 +121,7 @@ class Personnage
         foreach ($donnees as $cle => $valeur)
         {
             $methode = "set".ucfirst($cle);
-            if(method_exists($methode))
+            if(method_exists($this, $methode))
             {
                 $this->$methode($valeur);
             }
